@@ -3,27 +3,31 @@ package com.usa.misiontic.reto3.entities;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
 
 @Entity
-@Table(name = "booking")
-public class Booking implements Serializable {
+@Table(name = "bookings")
+public class Booking {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "clientId")
+    @JoinColumn(name = "client_id")
     @JsonIgnoreProperties("booking")
     private Client client;
 
     @ManyToOne
-    @JoinColumn(name = "carId")
-    @JsonIgnoreProperties("booking")
+    @JoinColumn(name = "car_id")
+    @JsonIgnoreProperties("bookings")
     private Car car;
+
+    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "booking")
+    @JsonIgnoreProperties("bookings")
+    private List<Booking_rating> bookings_rating;
 
     private Date start_date;
     private Date finish_date;
@@ -52,6 +56,14 @@ public class Booking implements Serializable {
 
     public void setCar(Car car) {
         this.car = car;
+    }
+
+    public List<Booking_rating> getBookings_rating() {
+        return bookings_rating;
+    }
+
+    public void setBookings_rating(List<Booking_rating> bookings_rating) {
+        this.bookings_rating = bookings_rating;
     }
 
     public Date getStart_date() {

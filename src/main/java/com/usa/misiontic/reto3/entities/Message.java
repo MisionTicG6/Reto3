@@ -1,13 +1,10 @@
 package com.usa.misiontic.reto3.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
-@Table(name = "message")
-public class Message implements Serializable {
+@Table(name = "messages")
+public class Message {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,9 +12,8 @@ public class Message implements Serializable {
     private String text;
 
     @ManyToOne
-    @JoinColumn(name = "carId")
-    @JsonIgnoreProperties("message")
-    private Car car;
+    @JoinColumn(name = "client_id")
+    private Client client;
 
     public Integer getId() {
         return id;
@@ -35,11 +31,11 @@ public class Message implements Serializable {
         this.text = text;
     }
 
-    public Car getCar() {
-        return car;
+    public Client getClient() {
+        return client;
     }
 
-    public void setCar(Car car) {
-        this.car = car;
+    public void setClient(Client client) {
+        this.client = client;
     }
 }

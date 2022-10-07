@@ -3,11 +3,11 @@ package com.usa.misiontic.reto3.entities;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-import java.io.Serializable;
+import java.util.List;
 
 @Entity
-@Table(name = "car")
-public class Car implements Serializable {
+@Table(name = "cars")
+public class Car {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,10 +17,14 @@ public class Car implements Serializable {
     private Integer year;
     private String description;
 
-    /*@ManyToOne
-    @JoinColumn(name = "rangeId")
-    @JsonIgnoreProperties("car")
-    private Range range;*/
+    @ManyToOne
+    @JoinColumn(name = "gama_id")
+    @JsonIgnoreProperties("games")
+    private Gama gama;
+
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "car")
+    @JsonIgnoreProperties("cars")
+    private List<Booking> bookings;
 
     public Integer getId() {
         return id;
@@ -62,11 +66,19 @@ public class Car implements Serializable {
         this.description = description;
     }
 
-    /*public Range getRange() {
-        return range;
+    public Gama getGama() {
+        return gama;
     }
 
-    public void setRange(Range range) {
-        this.range = range;
-    }*/
+    public void setGama(Gama gama) {
+        this.gama = gama;
+    }
+
+    public List<Booking> getBookings() {
+        return bookings;
+    }
+
+    public void setBookings(List<Booking> bookings) {
+        this.bookings = bookings;
+    }
 }
