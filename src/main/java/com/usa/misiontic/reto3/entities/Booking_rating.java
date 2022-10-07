@@ -17,7 +17,7 @@ public class Booking_rating {
 
     @ManyToOne
     @JoinColumn(name = "booking_id")
-    private Booking booking;
+    private Reservation reservations;
 
     public Integer getId() {
         return id;
@@ -51,11 +51,11 @@ public class Booking_rating {
         this.client = client;
     }
 
-    public Booking getBooking() {
-        return booking;
+    public Reservation getBooking() {
+        return reservations;
     }
 
-    public void setBooking(Booking booking) {
-        this.booking = booking;
+    public void setBooking(Reservation reservations) {
+        this.reservations = reservations;
     }
 }

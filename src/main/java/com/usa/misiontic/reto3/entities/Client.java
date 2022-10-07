@@ -18,15 +18,12 @@ public class Client {
     private String password;
 
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "client")
-    @JsonIgnoreProperties("clients")
-    private List<Booking> bookings;
+    @JsonIgnoreProperties("client")
+    private List<Reservation> reservations;
+
 
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "client")
-    @JsonIgnoreProperties("clients")
-    private List<Booking_rating> bookings_rating;
-
-    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "client")
-    @JsonIgnoreProperties("clients")
+    @JsonIgnoreProperties("client")
     private List<Message> messages;
 
     public Integer getId() {
@@ -69,21 +66,14 @@ public class Client {
         this.password = password;
     }
 
-    public List<Booking> getBookings() {
-        return bookings;
+    public List<Reservation> getReservations() {
+        return reservations;
     }
 
-    public void setBookings(List<Booking> bookings) {
-        this.bookings = bookings;
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
     }
 
-    public List<Booking_rating> getBookings_rating() {
-        return bookings_rating;
-    }
-
-    public void setBookings_rating(List<Booking_rating> bookings_rating) {
-        this.bookings_rating = bookings_rating;
-    }
 
     public List<Message> getMessages() {
         return messages;
