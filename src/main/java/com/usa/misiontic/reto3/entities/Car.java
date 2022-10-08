@@ -19,16 +19,16 @@ public class Car {
 
     @ManyToOne
     @JoinColumn(name = "gama_id")
-    @JsonIgnoreProperties("games")
+    @JsonIgnoreProperties("cars")
     private Gama gama;
+
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "car")
+    @JsonIgnoreProperties({"car","client"})
+    private List<Message> messages;
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "car")
     @JsonIgnoreProperties("car")
     private List<Reservation> reservations;
-
-    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "car")
-    @JsonIgnoreProperties("car")
-    private List<Message> messages;
 
     public Integer getId() {
         return id;
@@ -78,11 +78,11 @@ public class Car {
         this.gama = gama;
     }
 
-    public List<Reservation> getBookings() {
+    public List<Reservation> getReservations() {
         return reservations;
     }
 
-    public void setBookings(List<Reservation> reservations) {
+    public void setReservations(List<Reservation> reservations) {
         this.reservations = reservations;
     }
 

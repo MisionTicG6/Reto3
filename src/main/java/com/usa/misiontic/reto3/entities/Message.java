@@ -15,12 +15,12 @@ public class Message {
 
     @ManyToOne
     @JoinColumn(name = "client_id")
-    @JsonIgnoreProperties("messages")
+    @JsonIgnoreProperties({"messages","reservations"})
     private Client client;
 
     @ManyToOne
     @JoinColumn(name = "car_id")
-    @JsonIgnoreProperties("messages")
+    @JsonIgnoreProperties({"messages","reservations"})
     private Car car;
 
     public Car getCar() {

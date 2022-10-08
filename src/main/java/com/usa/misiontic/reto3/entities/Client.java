@@ -19,12 +19,11 @@ public class Client {
 
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "client")
     @JsonIgnoreProperties("client")
-    private List<Reservation> reservations;
-
+    private List<Message> messages;
 
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "client")
     @JsonIgnoreProperties("client")
-    private List<Message> messages;
+    private List<Reservation> reservations;
 
     public Integer getId() {
         return id;

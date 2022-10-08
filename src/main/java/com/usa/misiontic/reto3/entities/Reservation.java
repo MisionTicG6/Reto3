@@ -13,6 +13,9 @@ public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    private Date startDate;
+    private Date devolutionDate;
+    private String status;
 
     @ManyToOne
     @JoinColumn(name = "client_id")
@@ -21,15 +24,13 @@ public class Reservation {
 
     @ManyToOne
     @JoinColumn(name = "car_id")
-    @JsonIgnoreProperties("reservations")
+    @JsonIgnoreProperties({"reservations","messages"})
     private Car car;
 
-//    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "reservations")
-//    @JsonIgnoreProperties("reservations")
-//    private List<Booking_rating> bookings_rating;
-
-    private Date startDate;
-    private Date devolutionDate;
+    @ManyToOne
+    @JoinColumn(name="score_id")
+    @JsonIgnoreProperties("reservations")
+    private Score score;
 
     public Integer getId() {
         return id;
@@ -71,13 +72,19 @@ public class Reservation {
         this.devolutionDate = devolutionDate;
     }
 
-//    public List<Booking_rating> getBookings_rating() {
-//        return bookings_rating;
-//    }
-//
-//    public void setBookings_rating(List<Booking_rating> bookings_rating) {
-//        this.bookings_rating = bookings_rating;
-//    }
+    public String getStatus() {
+        return status;
+    }
 
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
+    public Score getScore() {
+        return score;
+    }
+
+    public void setScore(Score score) {
+        this.score = score;
+    }
 }
