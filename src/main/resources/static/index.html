@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./js/funciones.js"></script>
+    <link rel="stylesheet" type="text/css" href="./CSS/estilos.css">
+    <title>Rent a Car</title>
+</head>
+<body>
+    <h1>RENT A CAR</h1>
+<div  class="container">
+    <div class="item" id="car">
+        <h2>CARROS</h2>
+        <input type="text" id="marcaCarro" placeholder="Brand">
+        <input type="text" id="nombreCarro" placeholder="Name">
+        <input type="text" id="modeloCarro" placeholder="Model">
+        <input type="text" id="descripcionCarro" placeholder="Descripcion">
+        <input type="number" id="gama" placeholder="Gama">
+        <button onclick="leerCarros()"> Consultar </button>
+        <button onclick="guardarCarro()"> Insertar </button>
+        <div id="listaCarros">
+
+        </div>
+        
+    </div>
+    <br>
+    <div class="item" id="gama">
+        <h2>GAMA</h2>
+        <input type="text" id="nombreGama" placeholder="Nombre">
+        <input type="text" id="descripcionGama" placeholder="Descripcion">
+        <button onclick="leerGama()">Consultar</button>
+        <button onclick="guardarGama()">Insertar</button>
+        <div id="listaGama">
+
+        </div>
+        
+    </div>
+     <br>
+    <div class="item" id="client">
+        <h2>CLIENTES</h2>
+        <input type="text" id="nombreCliente" placeholder="Nombre">
+        <input type="email" id="mailCliente" placeholder="Correo">
+        <input type="number" id="edadCliente" placeholder="Edad">
+        <input type="password" id="idCliente" placeholder="Contraseña">
+        <button onclick="leerClientes()">Consultar</button>
+        <button onclick="guardarCliente()">Insertar</button>
+        <div id="listaClientes">
+
+        </div>
+    </div>
+    <br>
+    <div class="item" id="message">
+        <h2>MENSAJE</h2>
+        <input type="text" id="mensaje" placeholder="Mensaje">
+        <button onclick="leerMensajes()">Consultar</button>
+        <button onclick="guardarMensaje()">Insertar</button>
+        <div id="listaMensajes">
+
+        </div>
+    </div>
+    <br>
+    <div class="item" id="reserva">
+        <h2>RESERVA</h2>
+        <input type="number" id="reservaCarro" placeholder="Carro">
+        <input type="number" id="reservaCliente" placeholder="Cliente">
+        <input type="date" id="fechaInicio" placeholder="Fecha Inicio">
+        <input type="date" id="fechaEntrega" placeholder="Fecha Entrega">
+        <button onclick="leerMensajes()">Consultar</button>
+        <button onclick="guardarMensaje()">Insertar</button>
+        <div id="listaMensajes">
+
+        </div>
+    </div>
+    <br>
+    <div class="item" id="scoreReserva">
+        <h2>SCORE RESERVAS</h2>
+        <input type="number" id="scoreReserva" placeholder="Calificación">
+        <input type="text" id="mensajeReserva" placeholder="Mensaje">
+        <input type="number" id="idReserva" placeholder="Reserva">
+        <button onclick="leerMensajes()">Consultar</button>
+        <button onclick="guardarMensaje()">Insertar</button>
+        <div id="listaMensajes">
+
+        </div>
+    </div>
+    <br>
+    <div class="item" id="Admin">
+        <h2>ADMINISTRADOR</h2>
+        <input type="text" id="nameAdmin" placeholder="Nombre">
+        <input type="email" id="correoAdmin" placeholder="Correo">
+        <input type="password" id="passwordAdmin" placeholder="Contraseña">
+        <button onclick="leerMensajes()">Consultar</button>
+        <button onclick="guardarMensaje()">Insertar</button>
+        <div id="listaMensajes">
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
