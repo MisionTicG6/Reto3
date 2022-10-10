@@ -12,7 +12,7 @@ public class Reservation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer idReservation;
     private Date startDate;
     private Date devolutionDate;
     private String status;
@@ -32,12 +32,12 @@ public class Reservation {
     @JsonIgnoreProperties("reservations")
     private Score score;
 
-    public Integer getId() {
-        return id;
+    public Integer getIdReservation() {
+        return idReservation;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdReservation(Integer idReservation) {
+        this.idReservation = idReservation;
     }
 
     public Client getClient() {

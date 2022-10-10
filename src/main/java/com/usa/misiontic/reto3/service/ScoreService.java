@@ -21,10 +21,10 @@ public class ScoreService {
     public Optional<Score> getBooking(int id) {return scoreRepository.getScore(id); }
 
     public Score save(Score c){
-        if(c.getId()==null){
+        if(c.getIdScore()==null){
             return scoreRepository.save(c);
         }else{
-            Optional<Score> e= scoreRepository.getScore(c.getId());
+            Optional<Score> e= scoreRepository.getScore(c.getIdScore());
             if (e.isPresent()){
                 return c;
             }else{
@@ -34,8 +34,8 @@ public class ScoreService {
     }
 
     public Score update(Score c){
-        if(c.getId()!=null){
-            Optional<Score> q= scoreRepository.getScore(c.getId());
+        if(c.getIdScore()!=null){
+            Optional<Score> q= scoreRepository.getScore(c.getIdScore());
             if (q.isPresent()){
                 if(c.getDescription()!=null){
                     q.get().setDescription(c.getDescription());

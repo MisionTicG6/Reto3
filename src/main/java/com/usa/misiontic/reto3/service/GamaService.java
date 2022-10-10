@@ -21,10 +21,10 @@ public class GamaService {
     public Optional<Gama> getCar(int id) {return gamaRepository.getGama(id); }
 
     public Gama save(Gama c){
-        if(c.getId()==null){
+        if(c.getIdGama()==null){
             return gamaRepository.save(c);
         }else{
-            Optional<Gama> e=gamaRepository.getGama(c.getId());
+            Optional<Gama> e=gamaRepository.getGama(c.getIdGama());
             if (e.isPresent()){
                 return c;
             }else{
@@ -34,8 +34,8 @@ public class GamaService {
     }
 
     public Gama update(Gama c){
-        if(c.getId()!=null){
-            Optional<Gama> q=gamaRepository.getGama(c.getId());
+        if(c.getIdGama()!=null){
+            Optional<Gama> q=gamaRepository.getGama(c.getIdGama());
             if (q.isPresent()){
                 if(c.getName()!=null){
                     q.get().setName(c.getName());

@@ -11,15 +11,16 @@ public class Car {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private String brand;
+
+    private Integer idCar;
     private String name;
+    private String brand;
     private Integer year;
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "gama_id")
-    @JsonIgnoreProperties("cars")
+    @JoinColumn(name = "id_gama")
+    @JsonIgnoreProperties("car")
     private Gama gama;
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "car")
@@ -30,20 +31,20 @@ public class Car {
     @JsonIgnoreProperties("car")
     private List<Reservation> reservations;
 
-    public Integer getId() {
-        return id;
+    public Gama getGama() {
+        return gama;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setGama(Gama gama) {
+        this.gama = gama;
     }
 
-    public String getBrand() {
-        return brand;
+    public Integer getIdCar() {
+        return idCar;
     }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
+    public void setIdCar(Integer idCar) {
+        this.idCar = idCar;
     }
 
     public String getName() {
@@ -52,6 +53,14 @@ public class Car {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 
     public Integer getYear() {
@@ -70,12 +79,12 @@ public class Car {
         this.description = description;
     }
 
-    public Gama getGama() {
-        return gama;
+    public List<Message> getMessages() {
+        return messages;
     }
 
-    public void setGama(Gama gama) {
-        this.gama = gama;
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
     }
 
     public List<Reservation> getReservations() {
@@ -84,13 +93,5 @@ public class Car {
 
     public void setReservations(List<Reservation> reservations) {
         this.reservations = reservations;
-    }
-
-    public List<Message> getMessages() {
-        return messages;
-    }
-
-    public void setMessages(List<Message> messages) {
-        this.messages = messages;
     }
 }

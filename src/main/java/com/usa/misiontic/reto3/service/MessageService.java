@@ -21,10 +21,10 @@ public class MessageService {
     public Optional<Message> getCar(int id) {return messageRepository.getMessage(id); }
 
     public Message save(Message c){
-        if(c.getId()==null){
+        if(c.getIdMessage()==null){
             return messageRepository.save(c);
         }else{
-            Optional<Message> e=messageRepository.getMessage(c.getId());
+            Optional<Message> e=messageRepository.getMessage(c.getIdMessage());
             if (e.isPresent()){
                 return c;
             }else{
@@ -34,8 +34,8 @@ public class MessageService {
     }
 
     public Message update(Message c){
-        if(c.getId()!=null){
-            Optional<Message> q=messageRepository.getMessage(c.getId());
+        if(c.getIdMessage()!=null){
+            Optional<Message> q=messageRepository.getMessage(c.getIdMessage());
             if (q.isPresent()){
                 if(c.getMessageText()!=null){
                     q.get().setMessageText(c.getMessageText());

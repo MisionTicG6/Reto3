@@ -20,7 +20,7 @@ public class Score implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer idScore;
     private Integer puntaje;
     private String description;
 
@@ -29,13 +29,14 @@ public class Score implements Serializable {
     @JsonIgnoreProperties("score")
     private List<Reservation> reservations;
 
-    public Integer getId() {
-        return id;
+    public Integer getIdScore() {
+        return idScore;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdScore(Integer idScore) {
+        this.idScore = idScore;
     }
+
     public Integer getPuntaje() {
         return puntaje;
     }

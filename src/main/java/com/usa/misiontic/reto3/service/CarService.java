@@ -22,10 +22,10 @@ public class CarService {
     public Optional<Car> getCar(int id) {return carRepository.getCar(id); }
 
     public Car save(Car c){
-        if(c.getId()==null){
+        if(c.getIdCar()==null){
             return carRepository.save(c);
         }else{
-            Optional<Car> e=carRepository.getCar(c.getId());
+            Optional<Car> e=carRepository.getCar(c.getIdCar());
             if (e.isPresent()){
                 return c;
             }else{
@@ -35,8 +35,8 @@ public class CarService {
     }
 
     public Car update(Car c){
-        if(c.getId()!=null){
-            Optional<Car> q=carRepository.getCar(c.getId());
+        if(c.getIdCar()!=null){
+            Optional<Car> q=carRepository.getCar(c.getIdCar());
             if (q.isPresent()){
                 if(c.getName()!=null){
                     q.get().setName(c.getName());
@@ -50,9 +50,6 @@ public class CarService {
                 if(c.getDescription()!=null){
                     q.get().setDescription(c.getDescription());
                 }
-                /*if(c.getRange()!=null){
-                    q.get().setRange(c.getRange());
-                }*/
                 carRepository.save(q.get());
                 return q.get();
             }else{

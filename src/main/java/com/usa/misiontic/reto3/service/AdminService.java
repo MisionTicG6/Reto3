@@ -21,10 +21,10 @@ public class AdminService {
     public Optional<Admin> getCar(int id) {return adminRepository.getAdmin(id); }
 
     public Admin save(Admin c){
-        if(c.getId()==null){
+        if(c.getIdAdmin()==null){
             return adminRepository.save(c);
         }else{
-            Optional<Admin> e=adminRepository.getAdmin(c.getId());
+            Optional<Admin> e=adminRepository.getAdmin(c.getIdAdmin());
             if (e.isPresent()){
                 return c;
             }else{
@@ -34,8 +34,8 @@ public class AdminService {
     }
 
     public Admin update(Admin c){
-        if(c.getId()!=null){
-            Optional<Admin> q=adminRepository.getAdmin(c.getId());
+        if(c.getIdAdmin()!=null){
+            Optional<Admin> q=adminRepository.getAdmin(c.getIdAdmin());
             if (q.isPresent()){
                 if(c.getName()!=null){
                     q.get().setName(c.getName());

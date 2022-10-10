@@ -21,10 +21,10 @@ public class ReservationService {
     public Optional<Reservation> getCar(int id) {return reservationRepository.getBooking(id); }
 
     public Reservation save(Reservation c){
-        if(c.getId()==null){
+        if(c.getIdReservation()==null){
             return reservationRepository.save(c);
         }else{
-            Optional<Reservation> e= reservationRepository.getBooking(c.getId());
+            Optional<Reservation> e= reservationRepository.getBooking(c.getIdReservation());
             if (e.isPresent()){
                 return c;
             }else{
@@ -34,8 +34,8 @@ public class ReservationService {
     }
 
     public Reservation update(Reservation c){
-        if(c.getId()!=null){
-            Optional<Reservation> q= reservationRepository.getBooking(c.getId());
+        if(c.getIdReservation()!=null){
+            Optional<Reservation> q= reservationRepository.getBooking(c.getIdReservation());
             if (q.isPresent()){
                 if(c.getClient()!=null){
                     q.get().setClient(c.getClient());
