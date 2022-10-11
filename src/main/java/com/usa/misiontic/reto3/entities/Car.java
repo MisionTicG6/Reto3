@@ -18,8 +18,9 @@ public class Car {
     private Integer year;
     private String description;
 
+
     @ManyToOne
-    @JoinColumn(name = "id_gama")
+    @JoinColumn(name = "gama_id_gama")
     @JsonIgnoreProperties("car")
     private Gama gama;
 
@@ -31,13 +32,6 @@ public class Car {
     @JsonIgnoreProperties("car")
     private List<Reservation> reservations;
 
-    public Gama getGama() {
-        return gama;
-    }
-
-    public void setGama(Gama gama) {
-        this.gama = gama;
-    }
 
     public Integer getIdCar() {
         return idCar;
@@ -94,4 +88,13 @@ public class Car {
     public void setReservations(List<Reservation> reservations) {
         this.reservations = reservations;
     }
+
+    public Gama getGama() {
+        return gama;
+    }
+
+    public void setGama(Gama gama) {
+        this.gama = gama;
+    }
+
 }
