@@ -14,11 +14,11 @@
 <div  class="container">
     <div class="item" id="car">
         <h2>CARROS</h2>
-        <input type="text" id="marcaCarro" placeholder="Brand">
-        <input type="text" id="nombreCarro" placeholder="Name">
-        <input type="text" id="modeloCarro" placeholder="Model">
-        <input type="text" id="descripcionCarro" placeholder="Descripcion">
-        <input type="number" id="gama" placeholder="Gama">
+        <input type="text" id="brandCar" placeholder="Brand">
+        <input type="text" id="nameCar" placeholder="Name">
+        <input type="text" id="modelCar" placeholder="Model">
+        <input type="text" id="descriptionCar" placeholder="Descripcion">
+        <input type="number" id="gamaCar" placeholder="Gama">
         <button onclick="leerCarros()"> Consultar </button>
         <button onclick="guardarCarro()"> Insertar </button>
         <div id="listaCarros">
@@ -29,8 +29,8 @@
     <br>
     <div class="item" id="gama">
         <h2>GAMA</h2>
-        <input type="text" id="nombreGama" placeholder="Nombre">
-        <input type="text" id="descripcionGama" placeholder="Descripcion">
+        <input type="text" id="nameGama" placeholder="Nombre">
+        <input type="text" id="descriptionGama" placeholder="Descripcion">
         <button onclick="leerGama()">Consultar</button>
         <button onclick="guardarGama()">Insertar</button>
         <div id="listaGama">
@@ -41,10 +41,10 @@
      <br>
     <div class="item" id="client">
         <h2>CLIENTES</h2>
-        <input type="text" id="nombreCliente" placeholder="Nombre">
-        <input type="email" id="mailCliente" placeholder="Correo">
-        <input type="number" id="edadCliente" placeholder="Edad">
-        <input type="password" id="idCliente" placeholder="Contraseña">
+        <input type="text" id="nameClient" placeholder="Nombre">
+        <input type="email" id="mailClient" placeholder="Correo">
+        <input type="number" id="ageClient" placeholder="Edad">
+        <input type="password" id="passwordClient" placeholder="Contraseña">
         <button onclick="leerClientes()">Consultar</button>
         <button onclick="guardarCliente()">Insertar</button>
         <div id="listaClientes">
@@ -64,13 +64,15 @@
     <br>
     <div class="item" id="reserva">
         <h2>RESERVA</h2>
-        <input type="number" id="reservaCarro" placeholder="Carro">
-        <input type="number" id="reservaCliente" placeholder="Cliente">
+        <input type="number" id="reservaCar" placeholder="Carro">
+        <input type="number" id="reservaClient" placeholder="Cliente">
+        <label>Fecha Inicio</label>
         <input type="date" id="fechaInicio" placeholder="Fecha Inicio">
+        <label>Fecha Entrega</label>
         <input type="date" id="fechaEntrega" placeholder="Fecha Entrega">
-        <button onclick="leerMensajes()">Consultar</button>
-        <button onclick="guardarMensaje()">Insertar</button>
-        <div id="listaMensajes">
+        <button onclick="leerReserva()">Consultar</button>
+        <button onclick="guardarReserva()">Insertar</button>
+        <div id="listaReservas">
 
         </div>
     </div>
@@ -80,8 +82,8 @@
         <input type="number" id="scoreReserva" placeholder="Calificación">
         <input type="text" id="mensajeReserva" placeholder="Mensaje">
         <input type="number" id="idReserva" placeholder="Reserva">
-        <button onclick="leerMensajes()">Consultar</button>
-        <button onclick="guardarMensaje()">Insertar</button>
+        <button onclick="leerScoreReserva()">Consultar</button>
+        <button onclick="guardarScoreReserva()">Insertar</button>
         <div id="listaMensajes">
 
         </div>
@@ -90,11 +92,11 @@
     <div class="item" id="Admin">
         <h2>ADMINISTRADOR</h2>
         <input type="text" id="nameAdmin" placeholder="Nombre">
-        <input type="email" id="correoAdmin" placeholder="Correo">
+        <input type="email" id="mailAdmin" placeholder="Correo">
         <input type="password" id="passwordAdmin" placeholder="Contraseña">
-        <button onclick="leerMensajes()">Consultar</button>
-        <button onclick="guardarMensaje()">Insertar</button>
-        <div id="listaMensajes">
+        <button onclick="leerAdmin()">Consultar</button>
+        <button onclick="guardarAdmin()">Insertar</button>
+        <div id="listaAdmin">
 
         </div>
     </div>
