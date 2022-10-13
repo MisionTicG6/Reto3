@@ -19,12 +19,12 @@ public class Reservation {
 
     @ManyToOne
     @JoinColumn(name = "car_id")
-    @JsonIgnoreProperties({"reservations","messages"})
+    @JsonIgnoreProperties("messages")
     private Car car;
 
     @ManyToOne
     @JoinColumn(name = "client_id")
-    @JsonIgnoreProperties("reservations")
+    @JsonIgnoreProperties({"reservations","messages"})
     private Client client;
 
 //    @ManyToOne
@@ -87,4 +87,13 @@ public class Reservation {
 //    public void setScore(Score score) {
 //        this.score = score;
 //    }
+
+
+    public String getScore() {
+        return score;
+    }
+
+    public void setScore(String score) {
+        this.score = score;
+    }
 }
