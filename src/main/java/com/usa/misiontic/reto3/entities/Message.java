@@ -14,14 +14,16 @@ public class Message {
     private String messageText;
 
     @ManyToOne
+    @JoinColumn(name = "car_id")
+    @JsonIgnoreProperties({"messages","reservations"})
+    private Car car;
+
+    @ManyToOne
     @JoinColumn(name = "client_id")
     @JsonIgnoreProperties({"messages","reservations"})
     private Client client;
 
-    @ManyToOne
-    @JoinColumn(name = "car_id")
-    @JsonIgnoreProperties({"messages","reservations"})
-    private Car car;
+
 
     public Car getCar() {
         return car;

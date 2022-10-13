@@ -18,14 +18,14 @@ public class Reservation {
     private String status;
 
     @ManyToOne
-    @JoinColumn(name = "client_id")
-    @JsonIgnoreProperties("reservations")
-    private Client client;
-
-    @ManyToOne
     @JoinColumn(name = "car_id")
     @JsonIgnoreProperties({"reservations","messages"})
     private Car car;
+
+    @ManyToOne
+    @JoinColumn(name = "client_id")
+    @JsonIgnoreProperties("reservations")
+    private Client client;
 
     @ManyToOne
     @JoinColumn(name="score_id")
