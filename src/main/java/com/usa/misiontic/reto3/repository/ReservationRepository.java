@@ -23,6 +23,7 @@ public class ReservationRepository {
     }
 
     public Reservation save(Reservation c){
+        c.setStatus("created");
         return reservationCrudRepository.save(c);
     }
 

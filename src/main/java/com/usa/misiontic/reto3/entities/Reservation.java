@@ -27,10 +27,10 @@ public class Reservation {
     @JsonIgnoreProperties("reservations")
     private Client client;
 
-    @ManyToOne
-    @JoinColumn(name="score_id")
-    @JsonIgnoreProperties("reservations")
-    private Score score;
+//    @ManyToOne
+//    @JoinColumn(name="score_id")
+//    @JsonIgnoreProperties("reservations")
+    private String score;
 
     public Integer getIdReservation() {
         return idReservation;
@@ -80,11 +80,11 @@ public class Reservation {
         this.status = status;
     }
 
-    public Score getScore() {
-        return score;
-    }
-
-    public void setScore(Score score) {
-        this.score = score;
-    }
+//    public Score getScore() {
+//        return score;
+//    }
+//
+//    public void setScore(Score score) {
+//        this.score = score;
+//    }
 }
