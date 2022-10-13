@@ -19,7 +19,7 @@ public class Reservation {
 
     @ManyToOne
     @JoinColumn(name = "car_id")
-    @JsonIgnoreProperties("messages")
+    @JsonIgnoreProperties("reservations")
     private Car car;
 
     @ManyToOne
