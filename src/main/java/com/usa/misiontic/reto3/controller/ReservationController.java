@@ -1,5 +1,6 @@
 package com.usa.misiontic.reto3.controller;
 
+import com.usa.misiontic.reto3.entities.Message;
 import com.usa.misiontic.reto3.entities.Reservation;
 import com.usa.misiontic.reto3.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,4 +26,12 @@ public class ReservationController {
     public Reservation save(@RequestBody Reservation c){
         return reservationService.save(c);
     }
+
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Reservation update(@RequestBody Reservation c){ return reservationService.update(c); }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(@PathVariable("id") int reservationId){ return reservationService.delete(reservationId); }
 }

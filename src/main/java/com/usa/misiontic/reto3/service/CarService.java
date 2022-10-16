@@ -50,6 +50,9 @@ public class CarService {
                 if(c.getDescription()!=null){
                     q.get().setDescription(c.getDescription());
                 }
+                if(c.getGama()!=null){
+                    q.get().setGama(c.getGama());
+                }
                 carRepository.save(q.get());
                 return q.get();
             }else{

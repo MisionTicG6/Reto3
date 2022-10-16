@@ -1,5 +1,6 @@
 package com.usa.misiontic.reto3.controller;
 
+import com.usa.misiontic.reto3.entities.Client;
 import com.usa.misiontic.reto3.entities.Gama;
 import com.usa.misiontic.reto3.service.GamaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,4 +26,12 @@ public class GamaController {
     public Gama save(@RequestBody Gama c){
         return gamaService.save(c);
     }
+
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Gama update(@RequestBody Gama c){ return gamaService.update(c); }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(@PathVariable("id") int gamaId){ return gamaService.delete(gamaId); }
 }

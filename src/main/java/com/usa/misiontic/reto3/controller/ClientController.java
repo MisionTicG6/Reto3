@@ -1,5 +1,6 @@
 package com.usa.misiontic.reto3.controller;
 
+import com.usa.misiontic.reto3.entities.Car;
 import com.usa.misiontic.reto3.entities.Client;
 import com.usa.misiontic.reto3.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,4 +26,12 @@ public class ClientController {
     public Client save(@RequestBody Client c){
         return clientService.save(c);
     }
+
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Client update(@RequestBody Client c){ return clientService.update(c); }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(@PathVariable("id") int clientId){ return clientService.delete(clientId); }
 }

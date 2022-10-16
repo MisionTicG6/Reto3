@@ -40,6 +40,12 @@ public class MessageService {
                 if(c.getMessageText()!=null){
                     q.get().setMessageText(c.getMessageText());
                 }
+                if(c.getCar()!=null){
+                    q.get().setCar(c.getCar());
+                }
+                if(c.getClient()!=null){
+                    q.get().setClient(c.getClient());
+                }
                 messageRepository.save(q.get());
                 return q.get();
             }else{
