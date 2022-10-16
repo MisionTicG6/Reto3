@@ -22,10 +22,7 @@ public class ReservationRepository {
         return reservationCrudRepository.findById(id);
     }
 
-    public Reservation save(Reservation c){
-        c.setStatus("created");
-        return reservationCrudRepository.save(c);
-    }
+    public Reservation save(Reservation c){ return reservationCrudRepository.save(c); }
 
     public void delete(Reservation c){
         reservationCrudRepository.delete(c);
