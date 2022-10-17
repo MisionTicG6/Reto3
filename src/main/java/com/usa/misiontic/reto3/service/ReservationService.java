@@ -1,10 +1,16 @@
 package com.usa.misiontic.reto3.service;
 
+import com.usa.misiontic.reto3.entities.DTOs.CountClient;
+import com.usa.misiontic.reto3.entities.DTOs.CountStatus;
 import com.usa.misiontic.reto3.entities.Reservation;
 import com.usa.misiontic.reto3.repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -73,5 +79,34 @@ public class ReservationService {
             flag=true;
         }
         return flag;
+    }
+
+    public List<CountClient> getClientesCaletos(){
+        return reservationRepository.getClientesCaletos();
+    }
+
+    public List<Reservation> getReservationsBetweenDates(String dateA, String dateB){
+        SimpleDateFormat parser= new SimpleDateFormat( "yyy-MM-dd");
+        Date a = new Date();
+        Date b = new Date();
+        try{
+            a= parser.parse(dateA);
+            b= parser.parse(dateB);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        if (a.before(b)){
+            return reservationRepository.getReservationsBetweenDates(a, b);
+        }else{
+            return new ArrayList<>();
+        }
+    }
+
+    public CountStatus getReservationsStatus(){
+        List<Reservation> reservasCompletadas = reservationRepository.getReservationByStatus("completed");
+        List<Reservation> reservasCanceladas = reservationRepository.getReservationByStatus("cancelled");
+
+        return new CountStatus((long) reservasCompletadas.size(), (long) reservasCanceladas.size());
     }
 }
